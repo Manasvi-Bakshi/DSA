@@ -1,15 +1,13 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        n = len(nums)
-        dp = [False for _ in range(n)]
-        dp[n-1] = True
-        for i in range(n-2,-1,-1):
-            maxjump = min(i+nums[i], n-1)
-            for j in range(i+1,maxjump+1):
-                if dp[j]:
-                    dp[i] = True
-                    break
-        return dp[0]
+        maxval = 0
+        for i in range(len(nums)):
+            if i> maxval:
+                return False
+            maxval = max(maxval, i+nums[i])
+        
+        return True
+
 
             
 
