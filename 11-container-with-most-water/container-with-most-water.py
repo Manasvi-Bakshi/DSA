@@ -4,9 +4,7 @@ class Solution:
         h1 = 0
         h2 = len(height)-1
         while h1 < h2:
-            breadth = min(height[h1],height[h2])
-            length = h2-h1
-            area = length * breadth
+            area = (min(height[h1],height[h2])) * (h2-h1)
             water = max(water, area)
             if height[h1] < height[h2]:
                 h1 += 1
